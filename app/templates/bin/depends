@@ -1,6 +1,5 @@
 #! /usr/bin/env node
-function readPackageJSON() {
-  const pkgFile = 'package.json';
+function readPackageJSON(pkgFile) {
   const fs = require('fs');
   var json;
   try {
@@ -24,6 +23,7 @@ function outputList(pkgConfig) {
 }
 
 if (!module.parent) {
-  const pkgConfig = readPackageJSON();
+  const pkgFile = 'package.json';
+  const pkgConfig = readPackageJSON(pkgFile);
   if (pkgConfig) { outputList(pkgConfig); }
 }
